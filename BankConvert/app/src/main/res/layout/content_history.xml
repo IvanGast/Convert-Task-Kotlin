@@ -20,22 +20,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" android:id="@+id/allButton" android:layout_weight="1"
                 android:background="@drawable/button_gradient" android:textSize="18sp"
-                android:textColor="@android:color/black"
+                android:textColor="#FFC107"
                 android:textStyle="bold" android:textAllCaps="false" android:fontFamily="@font/adamina"/>
         <Button
                 android:text="EUR"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" android:id="@+id/eurButton" android:layout_weight="1"
-                android:textStyle="bold" android:textSize="18sp" android:background="@drawable/button_gradient" android:fontFamily="@font/adamina"/>
+                android:textStyle="bold" android:textSize="18sp" android:background="@drawable/button_gradient"
+                android:fontFamily="@font/adamina" android:textColor="#FFC107"/>
         <Button
                 android:text="USD"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent" android:id="@+id/usdButton" android:layout_weight="1"
+                android:layout_height="match_parent" android:id="@+id/usdButton" android:layout_weight="1" android:textColor="#FFC107"
                 android:textStyle="bold" android:background="@drawable/button_gradient" android:textSize="18sp" android:fontFamily="@font/adamina"/>
         <Button
                 android:text="JPY"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent" android:id="@+id/jpyButton" android:layout_weight="1"
+                android:layout_height="match_parent" android:id="@+id/jpyButton" android:layout_weight="1" android:textColor="#FFC107"
                 android:textStyle="bold" android:textSize="18sp" android:background="@drawable/button_gradient" android:fontFamily="@font/adamina"/>
     </LinearLayout>
     <LinearLayout

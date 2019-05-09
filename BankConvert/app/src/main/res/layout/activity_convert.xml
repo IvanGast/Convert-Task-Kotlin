@@ -23,6 +23,6 @@
             android:fontFamily="@font/aclonica"
             android:background="@drawable/background_gradient"
             app:headerLayout="@layout/nav_header_convert"
-            app:menu="@menu/activity_convert_drawer"/>
+            app:menu="@menu/activity_convert_drawer" app:itemTextColor="#FFC107"/>
 
 </android.support.v4.widget.DrawerLayout>

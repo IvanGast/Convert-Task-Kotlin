@@ -209,7 +209,9 @@
                             android:id="@+id/amountEditText"
 
                             android:layout_weight="1"
-                            android:maxLines="1" android:hint="0.00"
+                            android:maxLines="1"
+                            android:textColorHint="#FFC107"
+                            android:hint="0.00"
                             android:inputType="numberDecimal"
                             android:textCursorDrawable="@null"/>
                 </LinearLayout>

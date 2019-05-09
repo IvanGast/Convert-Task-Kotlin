@@ -23,6 +23,6 @@
             android:fontFamily="@font/aclonica"
             android:background="@drawable/background_gradient"
             app:headerLayout="@layout/nav_header_history"
-            app:menu="@menu/activity_history_drawer"/>
+            app:menu="@menu/activity_history_drawer" app:itemTextColor="#FFC107"/>
 
 </android.support.v4.widget.DrawerLayout>

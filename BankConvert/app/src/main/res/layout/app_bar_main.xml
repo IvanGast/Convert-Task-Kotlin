@@ -11,12 +11,15 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent">
 
+
         <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
-                android:layout_width="match_parent"
+                android:layout_width="?attr/actionBarSize"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@drawable/background_gradient"
-                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:titleTextColor="#FFC107"
+                />
 
     </android.support.design.widget.AppBarLayout>
 
