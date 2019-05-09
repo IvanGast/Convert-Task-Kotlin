@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:showIn="@layout/app_bar_convert"
+        tools:context=".ConvertActivity"
+        android:weightSum="11" android:background="@drawable/background_gradient">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_weight="6" android:gravity="center">
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:textAlignment="center" android:layout_marginLeft="45dp"
+                    android:layout_marginRight="45dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/border_shadow" android:layout_marginTop="2dp">
+                <TextView
+                        style="@style/accountTextView"
+                        android:text="Sąskaitos balansas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textAlignment="center" android:gravity="center"
+                        android:paddingTop="10dp" android:paddingBottom="10dp"
+                        android:background="@drawable/text_otherwise_background_gradient"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp" android:layout_marginRight="70dp"
+                    android:layout_marginLeft="70dp"
+                    android:background="@drawable/border_shadow">
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2" android:background="@drawable/text_background_gradient"
+                        android:paddingTop="3dp" android:paddingBottom="1dp">
+                    <TextView
+                            style="@style/accountTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:id="@+id/eurAmount" android:textAlignment="textEnd"/>
+                    <TextView
+                            style="@style/accountTextView"
+                            android:text="EUR"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2" android:background="@drawable/text_background_gradient"
+                        android:paddingTop="2dp" android:paddingBottom="2dp">
+                    <TextView
+                            style="@style/accountTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" android:id="@+id/usdAmount" android:textAlignment="textEnd"/>
+                    <TextView
+                            style="@style/accountTextView"
+                            android:text="USD"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2" android:background="@drawable/text_background_gradient"
+                        android:paddingBottom="3dp" android:paddingTop="1dp">
+                    <TextView
+                            style="@style/accountTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" android:id="@+id/jpyAmount" android:textAlignment="textEnd"/>
+                    <TextView
+                            style="@style/accountTextView"
+                            android:text="JPY"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_marginTop="2dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:background="@drawable/border_shadow">
+                <TextView
+                        style="@style/accountTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/convertCountTextView" android:textAlignment="center" android:paddingTop="5dp"
+                        android:paddingBottom="5dp" android:background="@drawable/text_otherwise_background_gradient"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_weight="4">
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginRight="45dp"
+                    android:layout_marginLeft="45dp"
+                    android:background="@drawable/border_shadow">
+                <TextView
+                        style="@style/accountTextView"
+                        android:text="Konvertavimas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textAlignment="center"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp" android:background="@drawable/text_background_gradient"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="60dp"
+                    android:layout_marginLeft="60dp"
+                    android:background="@drawable/border_shadow">
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2"
+                        android:gravity="center"
+                        android:background="@drawable/text_otherwise_background_gradient" android:paddingTop="3dp"
+                        android:paddingBottom="1dp">
+                    <TextView
+                            style="@style/accountTextView"
+                            android:text="Iš : "
+                            android:layout_width="match_parent"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content" android:textAlignment="textEnd"/>
+                    <Spinner
+                            style="@style/accountTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/fromSpinner"
+                            android:layout_weight="1"
+                            android:entries="@array/currency_array"/>
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2"
+                        android:gravity="center" android:background="@drawable/text_otherwise_background_gradient"
+                        android:paddingTop="2dp" android:paddingBottom="2dp">
+                    <TextView
+                            style="@style/accountTextView"
+                            android:text="Į : "
+                            android:layout_width="match_parent"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="textEnd"/>
+                    <Spinner
+                            style="@style/accountTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/toSpinner"
+                            android:layout_weight="1"
+                            android:entries="@array/currency_array_two"/>
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2"
+                        android:gravity="center"
+                        android:background="@drawable/text_otherwise_background_gradient" android:paddingBottom="3dp"
+                        android:paddingTop="1dp">
+                    <TextView
+                            style="@style/accountTextView"
+                            android:text="Kiekis : "
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textAlignment="textEnd"/>
+                    <EditText
+                            style="@style/accountTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ems="7"
+                            android:background="@android:color/transparent"
+                            android:id="@+id/amountEditText"
+
+                            android:layout_weight="1"
+                            android:maxLines="1" android:hint="0.00"
+                            android:inputType="numberDecimal"
+                            android:textCursorDrawable="@null"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginTop="20dp">
+                <Button
+                        style="@style/submitButton"
+                        android:text="Pateikti konvertavimą"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/submitButton"
+                        android:layout_gravity="center"
+                        android:paddingTop="15dp" android:paddingBottom="15dp"
+                        android:background="@drawable/request_gradient" android:textAllCaps="false"
+                        android:fontFamily="@font/aclonica"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

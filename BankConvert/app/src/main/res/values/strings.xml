@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Valiutu konvertavimas</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Valiutu konvertavimas</string>
+    <string name="nav_header_subtitle">www.paysera.lt</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Nustatymai</string>
+
+    <string-array name="currency_array">
+        <item>EUR</item>
+        <item>USD</item>
+        <item>JPY</item>
+    </string-array>
+
+    <string-array name="currency_array_two">
+        <item>USD</item>
+        <item>JPY</item>
+        <item>EUR</item>
+    </string-array>
+
+
+    <string name="menu_home">Pagrindinis</string>
+    <string name="menu_convert">Konvertavimas</string>
+    <string name="menu_history">Istorija</string>
+    <string name="title_activity_convert">Konvertavimas</string>
+    <string name="title_activity_history">Istorija</string>
+</resources>
