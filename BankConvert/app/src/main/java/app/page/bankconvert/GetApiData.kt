@@ -13,7 +13,6 @@ import java.net.URL
 class GetApiData : AsyncTask<String, Void, DataEntity>() {
 
         public override fun doInBackground(vararg params: String): DataEntity? {
-
             val myUrl = "http://api.evp.lt/currency/commercial/exchange/" + params[0] + "-" + params[1] + "/" + params[2] + "/latest"
             var myData: String? = null
             try {

@@ -13,6 +13,7 @@ import android.support.v4.widget.DrawerLayout
 import android.support.design.widget.NavigationView
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.text.Editable
 import android.view.Menu
 import android.widget.*
 import com.google.gson.Gson
@@ -75,8 +76,10 @@ class ConvertActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
                 var myConvert = MyConvert()
                 myConvert.setFromCurr(fromSpinner.selectedItem as String)
                 myConvert.setToCurr(toSpinner.selectedItem as String)
-                myConvert.setMyAmount(amountEditTextView.text.toString())
-
+                val df = DecimalFormat("#.##")
+                myConvert.setMyAmount(df.format(amountEditTextView.text.toString().toDouble()))
+                amountEditTextView.setText(myConvert.getMyAmount())
+                amountEditTextView.setSelection(myConvert.getMyAmount().length)
                 checkConvert(myConvert)
             } else {
                 displayError("Nurodykit konvertavimo sumą")
