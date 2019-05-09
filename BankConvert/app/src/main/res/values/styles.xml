@@ -34,6 +34,15 @@
         <item name="android:textSize">20dp</item>
     </style>
 
+    <style name="ThemeToolbar" parent="Theme.AppCompat.Light">
+
+        <!-- navigation icon color -->
+        <item name="colorControlNormal">#FFC107</item>
+
+        <!-- color of the menu overflow icon -->
+        <item name="android:textColorSecondary">#FFC107</item>
+    </style>
+
     <style name="valuesTextView">
         <item name="android:fontFamily">@font/advent_pro_medium</item>
         <item name="android:textColor">#FFC107</item>
