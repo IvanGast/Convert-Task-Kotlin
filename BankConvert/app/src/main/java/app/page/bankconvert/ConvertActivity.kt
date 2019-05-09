@@ -67,9 +67,7 @@ class ConvertActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         val toSpinner = findViewById<Spinner>(R.id.toSpinner)
         val amountEditTextView = findViewById<EditText>(R.id.amountEditText)
         val submitButton = findViewById<Button>(R.id.submitButton)
-        val convertCountTextView = findViewById<TextView>(R.id.convertCountTextView)
 
-        convertCountTextView.text = "Iš viso konvertavimu : $myConvertsCount"
 
         submitButton.setOnClickListener {
             if (amountEditTextView.text.toString() != "") {
@@ -140,8 +138,6 @@ class ConvertActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
             }
         }
 
-        setText()
-
         var myConvertItems: ArrayList<MyHistoryItem>
 
         var mSharedPreference = PreferenceManager.getDefaultSharedPreferences(applicationContext)
@@ -156,6 +152,8 @@ class ConvertActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
             myConvertItems = arrayListOf()
             myConvertsCount = 1
         }
+
+        setText()
 
         val sdf = SimpleDateFormat("dd/MM/yyyy hh:mm:ss")
         val date = Calendar.getInstance().time
@@ -203,12 +201,14 @@ class ConvertActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     }
 
     private fun setText(){
+        val convertCountTextView = findViewById<TextView>(R.id.convertCountTextView)
         val eurTextView = findViewById<TextView>(R.id.eurAmount)
         val usdTextView = findViewById<TextView>(R.id.usdAmount)
         val jpyTextView = findViewById<TextView>(R.id.jpyAmount)
 
         val df = DecimalFormat("#.##")
 
+        convertCountTextView.text = "Iš viso konvertavimu : $myConvertsCount"
         eurTextView.text = df.format(myAccount.eurAmmount).toString() + " "
         usdTextView.text = df.format(myAccount.usdAmmount).toString() + " "
         jpyTextView.text = df.format(myAccount.jpyAmmount).toString() + " "
@@ -264,11 +264,11 @@ class ConvertActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         var mSharedPreference = PreferenceManager.getDefaultSharedPreferences(applicationContext)
         val gson = Gson()
         val dataType = object : TypeToken<MyAccount>() {}.type
-        myConvertsCount = mSharedPreference.getInt("count", 0)
+//        myConvertsCount = mSharedPreference.getInt("count", 0)
         myAccount = gson.fromJson(mSharedPreference.getString("account", gson.toJson(myAccount)), dataType)
 
-        val convertCountTextView = findViewById<TextView>(R.id.convertCountTextView)
-        convertCountTextView.text = "Iš viso konvertavimu : $myConvertsCount"
+//        val convertCountTextView = findViewById<TextView>(R.id.convertCountTextView)
+//        convertCountTextView.text = "Iš viso konvertavimu : $myConvertsCount"
 
         super.onResume()
     }
