@@ -12,7 +12,9 @@
                   android:layout_width="match_parent"
                   android:layout_height="match_parent"
                   android:orientation="vertical"
-                  android:weightSum="3" android:textAlignment="center" android:layout_margin="3dp">
+                  android:weightSum="3"
+                  android:textAlignment="center"
+                  android:layout_margin="3dp">
         <TextView
                 style="@style/listTextView"
                 android:id="@+id/amountTextView"

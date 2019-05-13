@@ -7,70 +7,104 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/app_bar_history"
-        tools:context=".HistoryActivity" android:background="@drawable/background_gradient">
+        tools:context="app.bankconvert.page.history.HistoryActivity"
+        android:background="@drawable/background_gradient">
 
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="0dp" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:id="@+id/linearLayout" app:layout_constraintBottom_toTopOf="@+id/linearLayout2">
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/linearLayout"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2">
         <Button
-                android:text="Visi"
+                android:text="@string/history_button_all"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent" android:id="@+id/allButton" android:layout_weight="1"
-                android:background="@drawable/button_gradient" android:textSize="18sp"
+                android:layout_height="match_parent"
+                android:id="@+id/allButton"
+                android:layout_weight="1"
+                android:background="@drawable/button_gradient"
+                android:textSize="18sp"
                 android:textColor="#FFC107"
-                android:textStyle="bold" android:textAllCaps="false" android:fontFamily="@font/adamina"/>
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:fontFamily="@font/adamina"/>
         <Button
-                android:text="EUR"
+                android:text="@string/account_eur"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent" android:id="@+id/eurButton" android:layout_weight="1"
-                android:textStyle="bold" android:textSize="18sp" android:background="@drawable/button_gradient"
-                android:fontFamily="@font/adamina" android:textColor="#FFC107"/>
+                android:layout_height="match_parent"
+                android:id="@+id/eurButton" android:layout_weight="1"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:background="@drawable/button_gradient"
+                android:fontFamily="@font/adamina"
+                android:textColor="#FFC107"/>
         <Button
-                android:text="USD"
+                android:text="@string/account_usd"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent" android:id="@+id/usdButton" android:layout_weight="1" android:textColor="#FFC107"
-                android:textStyle="bold" android:background="@drawable/button_gradient" android:textSize="18sp" android:fontFamily="@font/adamina"/>
+                android:layout_height="match_parent"
+                android:id="@+id/usdButton"
+                android:layout_weight="1"
+                android:textColor="#FFC107"
+                android:textStyle="bold"
+                android:background="@drawable/button_gradient"
+                android:textSize="18sp"
+                android:fontFamily="@font/adamina"/>
         <Button
-                android:text="JPY"
+                android:text="@string/account_jpy"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent" android:id="@+id/jpyButton" android:layout_weight="1" android:textColor="#FFC107"
-                android:textStyle="bold" android:textSize="18sp" android:background="@drawable/button_gradient" android:fontFamily="@font/adamina"/>
+                android:layout_height="match_parent"
+                android:id="@+id/jpyButton"
+                android:layout_weight="1"
+                android:textColor="#FFC107"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:background="@drawable/button_gradient"
+                android:fontFamily="@font/adamina"/>
     </LinearLayout>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            app:layout_constraintBottom_toTopOf="@+id/myHistoryListView" android:id="@+id/linearLayout2"
+            app:layout_constraintBottom_toTopOf="@+id/myHistoryListView"
+            android:id="@+id/linearLayout2"
             android:padding="2dp">
         <TextView
                 style="@style/valuesTextView"
-                android:text="Kiekis : 0"
+                android:text="@string/history_count_default"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/quantityTextView" android:background="@drawable/text_background_gradient"/>
+                android:id="@+id/quantityTextView"
+                android:background="@drawable/text_background_gradient"/>
         <TextView
                 style="@style/valuesTextView"
-                android:text="Čia nenurodoma"
+                android:text="@string/history_commission_default"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/overallTextView" android:layout_marginTop="1dp" android:layout_marginBottom="1dp"
+                android:id="@+id/overallTextView"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
                 android:background="@drawable/text_otherwise_background_gradient"/>
         <TextView
                 style="@style/valuesTextView"
-                android:text="Čia nenurodoma"
+                android:text="@string/history_commission_default"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/totalCommissionTextView" android:background="@drawable/text_background_gradient"/>
+                android:id="@+id/totalCommissionTextView"
+                android:background="@drawable/text_background_gradient"/>
     </LinearLayout>
     <ListView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:id="@+id/myHistoryListView"
+            android:layout_height="match_parent"
+            android:id="@+id/myHistoryListView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="140dp"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="140dp"/>
 </android.support.constraint.ConstraintLayout>

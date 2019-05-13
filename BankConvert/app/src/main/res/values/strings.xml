@@ -6,6 +6,25 @@
     <string name="nav_header_subtitle">www.paysera.lt</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Nustatymai</string>
+    <string name="menu_home">Pagrindinis</string>
+    <string name="menu_convert">Konvertavimas</string>
+    <string name="menu_history">Istorija</string>
+    <string name="title_activity_convert">Konvertavimas</string>
+    <string name="title_activity_history">Istorija</string>
+    <string name="title_account">Sąskaitos balansas</string>
+    <string name="welcome_text">Sveiki Valiutu Konvertavimo Aplikacijoje !</string>
+    <string name="account_eur">EUR</string>
+    <string name="account_usd">USD</string>
+    <string name="account_jpy">JPY</string>
+    <string name="account_count_default">Iš viso konvertavimu : 0</string>
+    <string name="history_button_all">Visi</string>
+    <string name="history_count_default">Kiekis : 0</string>
+    <string name="history_commission_default">Čia nenurodoma</string>
+    <string name="convert_from">Iš : </string>
+    <string name="convert_to">Į : </string>
+    <string name="convert_amount">Kiekis : </string>
+    <string name="convert_submit">Pateikti konvertavimą</string>
+
 
     <string-array name="currency_array">
         <item>EUR</item>
@@ -20,9 +39,5 @@
     </string-array>
 
 
-    <string name="menu_home">Pagrindinis</string>
-    <string name="menu_convert">Konvertavimas</string>
-    <string name="menu_history">Istorija</string>
-    <string name="title_activity_convert">Konvertavimas</string>
-    <string name="title_activity_history">Istorija</string>
+
 </resources>

@@ -6,25 +6,26 @@
 
     <application
             android:allowBackup="true"
+            android:name="app.bankconvert.realm.setup.MyApp"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
-                android:name=".HistoryActivity"
+                android:name="app.bankconvert.page.history.HistoryActivity"
                 android:label="@string/title_activity_history"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:launchMode="singleTask">
         </activity>
         <activity
-                android:name=".ConvertActivity"
+                android:name="app.bankconvert.page.convert.ConvertActivity"
                 android:label="@string/title_activity_convert"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:launchMode="singleTask">
         </activity>
         <activity
-                android:name=".MainActivity"
+                android:name="app.bankconvert.page.main.MainActivity"
                 android:label="@string/app_name"
                 android:theme="@style/AppTheme.NoActionBar"
                 android:launchMode="singleTask">

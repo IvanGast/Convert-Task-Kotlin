@@ -7,8 +7,9 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/app_bar_convert"
-        tools:context=".ConvertActivity"
-        android:weightSum="11" android:background="@drawable/background_gradient">
+        tools:context="app.bankconvert.page.convert.ConvertActivity"
+        android:weightSum="11"
+        android:background="@drawable/background_gradient">
 
     <LinearLayout
             android:orientation="vertical"
@@ -17,44 +18,57 @@
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:layout_weight="6" android:gravity="center">
+                android:layout_height="match_parent"
+                android:layout_weight="6"
+                android:gravity="center">
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:textAlignment="center" android:layout_marginLeft="45dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:layout_marginLeft="45dp"
                     android:layout_marginRight="45dp"
                     android:layout_marginBottom="2dp"
-                    android:background="@drawable/border_shadow" android:layout_marginTop="2dp">
+                    android:background="@drawable/border_shadow"
+                    android:layout_marginTop="2dp">
                 <TextView
                         style="@style/accountTextView"
-                        android:text="Sąskaitos balansas"
+                        android:text="@string/title_account"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:textAlignment="center" android:gravity="center"
-                        android:paddingTop="10dp" android:paddingBottom="10dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
                         android:background="@drawable/text_otherwise_background_gradient"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:layout_marginTop="2dp"
-                    android:layout_marginBottom="2dp" android:layout_marginRight="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginRight="70dp"
                     android:layout_marginLeft="70dp"
                     android:background="@drawable/border_shadow">
                 <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:weightSum="2" android:background="@drawable/text_background_gradient"
-                        android:paddingTop="3dp" android:paddingBottom="1dp">
+                        android:weightSum="2"
+                        android:background="@drawable/text_background_gradient"
+                        android:paddingTop="3dp"
+                        android:paddingBottom="1dp">
                     <TextView
                             style="@style/accountTextView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:id="@+id/eurAmount" android:textAlignment="textEnd"/>
+                            android:id="@+id/eurAmount"
+                            android:textAlignment="textEnd"/>
                     <TextView
                             style="@style/accountTextView"
-                            android:text="EUR"
+                            android:text="@string/account_eur"
                             android:layout_weight="1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
@@ -63,16 +77,20 @@
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:weightSum="2" android:background="@drawable/text_background_gradient"
-                        android:paddingTop="2dp" android:paddingBottom="2dp">
+                        android:weightSum="2"
+                        android:background="@drawable/text_background_gradient"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="2dp">
                     <TextView
                             style="@style/accountTextView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1" android:id="@+id/usdAmount" android:textAlignment="textEnd"/>
+                            android:layout_weight="1"
+                            android:id="@+id/usdAmount"
+                            android:textAlignment="textEnd"/>
                     <TextView
                             style="@style/accountTextView"
-                            android:text="USD"
+                            android:text="@string/account_usd"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"/>
@@ -81,16 +99,20 @@
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:weightSum="2" android:background="@drawable/text_background_gradient"
-                        android:paddingBottom="3dp" android:paddingTop="1dp">
+                        android:weightSum="2"
+                        android:background="@drawable/text_background_gradient"
+                        android:paddingBottom="3dp"
+                        android:paddingTop="1dp">
                     <TextView
                             style="@style/accountTextView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1" android:id="@+id/jpyAmount" android:textAlignment="textEnd"/>
+                            android:layout_weight="1"
+                            android:id="@+id/jpyAmount"
+                            android:textAlignment="textEnd"/>
                     <TextView
                             style="@style/accountTextView"
-                            android:text="JPY"
+                            android:text="@string/account_jpy"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"/>
@@ -99,7 +121,8 @@
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:layout_marginTop="2dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
                     android:layout_marginRight="50dp"
                     android:layout_marginLeft="50dp"
                     android:background="@drawable/border_shadow">
@@ -107,14 +130,18 @@
                         style="@style/accountTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/convertCountTextView" android:textAlignment="center" android:paddingTop="5dp"
-                        android:paddingBottom="5dp" android:background="@drawable/text_otherwise_background_gradient"/>
+                        android:id="@+id/convertCountTextView"
+                        android:textAlignment="center"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:background="@drawable/text_otherwise_background_gradient"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:layout_weight="4">
+                android:layout_height="match_parent"
+                android:layout_weight="4">
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
@@ -126,11 +153,13 @@
                     android:background="@drawable/border_shadow">
                 <TextView
                         style="@style/accountTextView"
-                        android:text="Konvertavimas"
+                        android:text="@string/menu_convert"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:textAlignment="center"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
                         android:paddingTop="10dp"
-                        android:paddingBottom="10dp" android:background="@drawable/text_background_gradient"/>
+                        android:paddingBottom="10dp"
+                        android:background="@drawable/text_background_gradient"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="vertical"
@@ -147,14 +176,16 @@
                         android:layout_height="wrap_content"
                         android:weightSum="2"
                         android:gravity="center"
-                        android:background="@drawable/text_otherwise_background_gradient" android:paddingTop="3dp"
+                        android:background="@drawable/text_otherwise_background_gradient"
+                        android:paddingTop="3dp"
                         android:paddingBottom="1dp">
                     <TextView
                             style="@style/accountTextView"
-                            android:text="Iš : "
+                            android:text="@string/convert_from"
                             android:layout_width="match_parent"
                             android:layout_weight="1"
-                            android:layout_height="wrap_content" android:textAlignment="textEnd"/>
+                            android:layout_height="wrap_content"
+                            android:textAlignment="textEnd"/>
                     <Spinner
                             style="@style/accountTextView"
                             android:layout_width="match_parent"
@@ -168,11 +199,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:weightSum="2"
-                        android:gravity="center" android:background="@drawable/text_otherwise_background_gradient"
-                        android:paddingTop="2dp" android:paddingBottom="2dp">
+                        android:gravity="center"
+                        android:background="@drawable/text_otherwise_background_gradient"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="2dp">
                     <TextView
                             style="@style/accountTextView"
-                            android:text="Į : "
+                            android:text="@string/convert_to"
                             android:layout_width="match_parent"
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
@@ -191,11 +224,12 @@
                         android:layout_height="wrap_content"
                         android:weightSum="2"
                         android:gravity="center"
-                        android:background="@drawable/text_otherwise_background_gradient" android:paddingBottom="3dp"
+                        android:background="@drawable/text_otherwise_background_gradient"
+                        android:paddingBottom="3dp"
                         android:paddingTop="1dp">
                     <TextView
                             style="@style/accountTextView"
-                            android:text="Kiekis : "
+                            android:text="@string/convert_amount"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -210,7 +244,7 @@
 
                             android:layout_weight="1"
                             android:maxLines="1"
-                            android:textColorHint="#FFC107"
+                            android:textColorHint="#FFECB3"
                             android:hint="0.00"
                             android:inputType="numberDecimal"
                             android:textCursorDrawable="@null"/>
@@ -226,13 +260,15 @@
                     android:layout_marginTop="20dp">
                 <Button
                         style="@style/submitButton"
-                        android:text="Pateikti konvertavimą"
+                        android:text="@string/convert_submit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/submitButton"
                         android:layout_gravity="center"
-                        android:paddingTop="15dp" android:paddingBottom="15dp"
-                        android:background="@drawable/request_gradient" android:textAllCaps="false"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:background="@drawable/request_gradient"
+                        android:textAllCaps="false"
                         android:fontFamily="@font/aclonica"/>
             </LinearLayout>
         </LinearLayout>

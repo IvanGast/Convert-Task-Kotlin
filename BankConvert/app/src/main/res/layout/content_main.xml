@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/app_bar_main"
-        tools:context=".MainActivity"
+        tools:context="app.bankconvert.page.main.MainActivity"
         android:weightSum="11" android:background="@drawable/background_gradient">
     <LinearLayout
             android:orientation="vertical"
@@ -26,11 +26,16 @@
                 android:background="@drawable/border_shadow">
             <TextView
                     style="@style/welcomeTextView"
-                    android:text="Sveiki Valiutu Konvertavimo Aplikacijoje !"
+                    android:text="@string/welcome_text"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:textAlignment="center" android:gravity="center"
-                    android:background="@drawable/text_background_gradient" android:paddingLeft="5dp"
-                    android:paddingRight="5dp" android:paddingTop="10dp" android:paddingBottom="10dp"/>
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:background="@drawable/text_background_gradient"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="vertical"
@@ -50,10 +55,13 @@
                     android:background="@drawable/border_shadow">
                 <TextView
                         style="@style/accountTextView"
-                        android:text="Sąskaitos balansas"
+                        android:text="@string/title_account"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:textAlignment="center" android:gravity="center"
-                        android:background="@drawable/text_otherwise_background_gradient" android:paddingTop="10dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:background="@drawable/text_otherwise_background_gradient"
+                        android:paddingTop="10dp"
                         android:paddingBottom="10dp"/>
             </LinearLayout>
             <LinearLayout
@@ -70,17 +78,19 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:weightSum="2"
-                        android:background="@drawable/text_background_gradient" android:paddingTop="3dp"
+                        android:background="@drawable/text_background_gradient"
+                        android:paddingTop="3dp"
                         android:paddingBottom="1dp">
                     <TextView
                             style="@style/accountTextView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:id="@+id/eurAmount" android:textAlignment="textEnd"/>
+                            android:id="@+id/eurAmount"
+                            android:textAlignment="textEnd"/>
                     <TextView
                             style="@style/accountTextView"
-                            android:text="EUR"
+                            android:text="@string/account_eur"
                             android:layout_weight="1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
@@ -90,17 +100,19 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:weightSum="2"
-                        android:background="@drawable/text_background_gradient" android:paddingTop="2dp"
+                        android:background="@drawable/text_background_gradient"
+                        android:paddingTop="2dp"
                         android:paddingBottom="2dp">
                     <TextView
                             style="@style/accountTextView"
                             android:layout_width="match_parent"
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
-                            android:id="@+id/usdAmount" android:textAlignment="textEnd"/>
+                            android:id="@+id/usdAmount"
+                            android:textAlignment="textEnd"/>
                     <TextView
                             style="@style/accountTextView"
-                            android:text="USD"
+                            android:text="@string/account_usd"
                             android:layout_weight="1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
@@ -109,17 +121,20 @@
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:weightSum="2" android:background="@drawable/text_background_gradient"
-                        android:paddingBottom="3dp" android:paddingTop="1dp">
+                        android:weightSum="2"
+                        android:background="@drawable/text_background_gradient"
+                        android:paddingBottom="3dp"
+                        android:paddingTop="1dp">
                     <TextView
                             style="@style/accountTextView"
                             android:layout_width="match_parent"
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
-                            android:id="@+id/jpyAmount" android:textAlignment="textEnd"/>
+                            android:id="@+id/jpyAmount"
+                            android:textAlignment="textEnd"/>
                     <TextView
                             style="@style/accountTextView"
-                            android:text="JPY"
+                            android:text="@string/account_jpy"
                             android:layout_width="match_parent"
                             android:layout_weight="1"
                             android:layout_height="wrap_content"/>
@@ -135,10 +150,13 @@
                     android:background="@drawable/border_shadow">
                 <TextView
                         style="@style/accountTextView"
+                        android:text="@string/account_count_default"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/convertCountTextView" android:textAlignment="center"
-                        android:background="@drawable/text_otherwise_background_gradient" android:paddingTop="5dp"
+                        android:id="@+id/convertCountTextView"
+                        android:textAlignment="center"
+                        android:background="@drawable/text_otherwise_background_gradient"
+                        android:paddingTop="5dp"
                         android:paddingBottom="5dp"/>
             </LinearLayout>
         </LinearLayout>
