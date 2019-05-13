@@ -107,7 +107,7 @@ class ConvertActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         if (someConvert.getFromCurr() == someConvert.getToCurr() ) {
             displayError(CURRENCY_ERROR)
         } else {
-            if (someConvert.getMyAmount().toDouble() < getAmount(someConvert.getFromCurr()) ) {
+            if (someConvert.getMyAmount().toDouble() <= getAmount(someConvert.getFromCurr()) ) {
                 checkAddition()
             } else {
                 displayError(BALANCE_ERROR)
@@ -222,7 +222,7 @@ class ConvertActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     }
 
     private fun handleError(error: Throwable) {
-        Toast.makeText(this, error.message, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, error.message + " Contact support.", Toast.LENGTH_SHORT).show()
     }
 
     override fun onBackPressed() {
