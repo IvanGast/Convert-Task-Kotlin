@@ -59,7 +59,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         daggerRequestInterface.getMainPresenter().getData()
     }
 
-
     override fun onBackPressed() {
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -113,7 +112,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         jpyAmountTextView.text = "Failed "
     }
 
-
     override fun setData(strUpdates: ArrayList<String>) {
         val df = DecimalFormat("#.##")
 
@@ -127,7 +125,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         daggerRequestInterface.getMainPresenter().getData()
         super.onResume()
     }
-
 }
 
 interface MainAccountView {

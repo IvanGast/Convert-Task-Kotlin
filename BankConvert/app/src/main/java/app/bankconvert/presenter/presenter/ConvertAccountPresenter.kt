@@ -35,7 +35,7 @@ class ConvertAccountPresenter(private var convertView: ConvertAccountView, priva
         convertView.setDataError()
     }
 
-    fun onResultUpdate(account: Account, someConvert: Convert, data: DataEntity, addition: Double) {
+    fun onUpdate(account: Account, someConvert: Convert, data: DataEntity, addition: Double) {
         if (someConvert.getFromCurr() == EUR) {
             account.eurAmmount = account.eurAmmount - someConvert.getMyAmount().toDouble() - addition
         } else {

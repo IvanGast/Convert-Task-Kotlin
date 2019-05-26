@@ -53,8 +53,6 @@ class HistoryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
         navView.setNavigationItemSelectedListener(this)
 
-        val historyListView = findViewById<ListView>(R.id.myHistoryListView)
-
         listHistoryItems = HistoryItem().queryAll()
 
         val accountConvertsCount = listHistoryItems.size
@@ -113,8 +111,6 @@ class HistoryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     }
 
     override fun onResume() {
-        val historyListView = findViewById<ListView>(R.id.myHistoryListView)
-
         listHistoryItems = HistoryItem().queryAll()
 
         val adapter = HistoryListAdapter(this, listHistoryItems)

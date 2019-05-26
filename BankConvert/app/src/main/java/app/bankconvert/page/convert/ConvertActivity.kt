@@ -42,6 +42,7 @@ class ConvertActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     private val JPY = "JPY"
     private val NOT_AVAILABLE = "Failed "
 
+    private var compositeDisposable = CompositeDisposable()
     private val daggerRequestInterface = DaggerRequestInterfaceComponent.builder()
                                                                         .contextModule(ContextModule(this))
                                                                         .build()
@@ -56,7 +57,6 @@ class ConvertActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         setContentView(R.layout.activity_convert)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Rašyk e-mail ivan.gastilovic@hotmail.com", Snackbar.LENGTH_LONG)
@@ -71,27 +71,21 @@ class ConvertActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         )
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-
         navView.setNavigationItemSelectedListener(this)
 
         account = Account().queryFirst() as Account
 
         daggerRequestInterface.getConvertPresenter().getData()
 
-        val fromSpinner = findViewById<Spinner>(R.id.fromSpinner)
-        val toSpinner = findViewById<Spinner>(R.id.toSpinner)
-        val amountEditTextView = findViewById<EditText>(R.id.amountEditText)
-        val submitButton = findViewById<Button>(R.id.submitButton)
-
         submitButton.setOnClickListener {
-            if (amountEditTextView.text.toString() != "") {
+            if (amountEditText.text.toString() != "") {
                 someConvert = Convert()
                 someConvert.setFromCurr(fromSpinner.selectedItem as String)
                 someConvert.setToCurr(toSpinner.selectedItem as String)
                 val df = DecimalFormat("#.##")
-                someConvert.setMyAmount(df.format(amountEditTextView.text.toString().toDouble()))
-                amountEditTextView.setText(someConvert.getMyAmount())
-                amountEditTextView.setSelection(someConvert.getMyAmount().length)
+                someConvert.setMyAmount(df.format(amountEditText.text.toString().toDouble()))
+                amountEditText.setText(someConvert.getMyAmount())
+                amountEditText.setSelection(someConvert.getMyAmount().length)
                 checkConvert()
             } else {
                 displayError(VALUE_ERROR)
@@ -154,16 +148,14 @@ class ConvertActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         globalUrl = url
         val requestInterface = daggerRequestInterface.getRequestService()
 
-        val mCompositeDisposable = CompositeDisposable()
-        mCompositeDisposable.add(requestInterface.getData(url)
+        compositeDisposable.add(requestInterface.getData(url)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .subscribe(this::handleResponse, this::handleError))
     }
 
-
     private fun handleResponse(data: DataEntity) {
-        daggerRequestInterface.getConvertPresenter().onResultUpdate(account, someConvert, data, addition)
+        daggerRequestInterface.getConvertPresenter().onUpdate(account, someConvert, data, addition)
 
         val df = DecimalFormat("#.##")
 
@@ -245,6 +237,16 @@ class ConvertActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         eurAmountTextView.text = df.format(strUpdates[1].toDouble()) + " "
         usdAmountTextView.text = df.format(strUpdates[2].toDouble()) + " "
         jpyAmountTextView.text = df.format(strUpdates[3].toDouble()) + " "
+    }
+
+    override fun onPause() {
+        compositeDisposable.dispose()
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        compositeDisposable.dispose()
+        super.onDestroy()
     }
 }
 
