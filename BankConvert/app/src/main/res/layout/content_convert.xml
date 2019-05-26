@@ -10,7 +10,6 @@
         tools:context="app.bankconvert.page.convert.ConvertActivity"
         android:weightSum="11"
         android:background="@drawable/background_gradient">
-
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -64,7 +63,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:id="@+id/eurAmount"
+                            android:id="@+id/eurAmountTextView"
                             android:textAlignment="textEnd"/>
                     <TextView
                             style="@style/accountTextView"
@@ -86,7 +85,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:id="@+id/usdAmount"
+                            android:id="@+id/usdAmountTextView"
                             android:textAlignment="textEnd"/>
                     <TextView
                             style="@style/accountTextView"
@@ -108,7 +107,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:id="@+id/jpyAmount"
+                            android:id="@+id/jpyAmountTextView"
                             android:textAlignment="textEnd"/>
                     <TextView
                             style="@style/accountTextView"
@@ -192,7 +191,8 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/fromSpinner"
                             android:layout_weight="1"
-                            android:entries="@array/currency_array" android:paddingLeft="5dp"/>
+                            android:entries="@array/currency_array"
+                            android:paddingLeft="5dp"/>
                 </LinearLayout>
                 <LinearLayout
                         android:orientation="horizontal"
@@ -216,7 +216,8 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/toSpinner"
                             android:layout_weight="1"
-                            android:entries="@array/currency_array_two" android:paddingLeft="5dp"/>
+                            android:entries="@array/currency_array_two"
+                            android:paddingLeft="5dp"/>
                 </LinearLayout>
                 <LinearLayout
                         android:orientation="horizontal"
@@ -241,13 +242,13 @@
                             android:ems="7"
                             android:background="@android:color/transparent"
                             android:id="@+id/amountEditText"
-
                             android:layout_weight="1"
                             android:maxLines="1"
                             android:textColorHint="#FFECB3"
                             android:hint="0.00"
                             android:inputType="numberDecimal"
-                            android:textCursorDrawable="@null" android:paddingLeft="5dp"/>
+                            android:textCursorDrawable="@null"
+                            android:paddingLeft="5dp"/>
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout

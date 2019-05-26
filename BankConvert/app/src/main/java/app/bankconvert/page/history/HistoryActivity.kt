@@ -15,12 +15,12 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.widget.Button
 import android.widget.ListView
-import android.widget.TextView
 import app.bankconvert.page.convert.ConvertActivity
 import app.bankconvert.realm.entities.HistoryItem
 import app.bankconvert.page.main.MainActivity
 import app.page.bankconvert.R
 import com.vicpin.krealmextensions.queryAll
+import kotlinx.android.synthetic.main.content_history.*
 import java.text.DecimalFormat
 import java.util.stream.Collectors
 
@@ -35,7 +35,6 @@ class HistoryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         setContentView(R.layout.activity_history)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
@@ -54,15 +53,11 @@ class HistoryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
         navView.setNavigationItemSelectedListener(this)
 
-        val myHistoryListView = findViewById<ListView>(R.id.myHistoryListView)
+        val historyListView = findViewById<ListView>(R.id.myHistoryListView)
 
         listHistoryItems = HistoryItem().queryAll()
 
         val accountConvertsCount = listHistoryItems.size
-
-        val quantityTextView = findViewById<TextView>(R.id.quantityTextView)
-        val overallTextView = findViewById<TextView>(R.id.overallTextView)
-        val totalCommissionTextView = findViewById<TextView>(R.id.totalCommissionTextView)
 
         quantityTextView.text = "Konvertavimu kiekis : $accountConvertsCount"
 
@@ -73,62 +68,62 @@ class HistoryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         val jpyButton = findViewById<Button>(R.id.jpyButton)
 
         allButton.setOnClickListener {
-            val myAllAdapter = HistoryListAdapter(this, listHistoryItems)
-            myHistoryListView.adapter = myAllAdapter
+            val allAdapter = HistoryListAdapter(this, listHistoryItems)
+            historyListView.adapter = allAdapter
             quantityTextView.text = "Konvertavimu kiekis : $accountConvertsCount"
             overallTextView.text = NOT_AVAILABLE
             totalCommissionTextView.text = NOT_AVAILABLE
         }
         eurButton.setOnClickListener {
-            val myEurItems = listHistoryItems.stream()
+            val eurItems = listHistoryItems.stream()
                 .filter { n -> n.fromCurr == "EUR" }
                 .collect(Collectors.toList())
-            val myEurAdapter = HistoryListAdapter(this, myEurItems)
-            myHistoryListView.adapter = myEurAdapter
-            val myOverall = df.format(myEurItems.sumByDouble { it.myAmount.toDouble() })
-            val myTotal = df.format(myEurItems.sumByDouble { it.addition.toDouble() })
-            totalCommissionTextView.text = "Iš viso komisiniu mokėsčiu : $myTotal EUR"
-            quantityTextView.text = "Konvertavimu kiekis : " + myEurItems.size
-            overallTextView.text = "Iš viso konvertuota : $myOverall EUR"
+            val eurAdapter = HistoryListAdapter(this, eurItems)
+            historyListView.adapter = eurAdapter
+            val overall = df.format(eurItems.sumByDouble { it.amount.toDouble() })
+            val total = df.format(eurItems.sumByDouble { it.addition.toDouble() })
+            totalCommissionTextView.text = "Iš viso komisiniu mokėsčiu : $total EUR"
+            quantityTextView.text = "Konvertavimu kiekis : " + eurItems.size
+            overallTextView.text = "Iš viso konvertuota : $overall EUR"
         }
         usdButton.setOnClickListener {
-            val myUsdItems = listHistoryItems.stream()
+            val usdItems = listHistoryItems.stream()
                 .filter { n -> n.fromCurr == "USD" }
                 .collect(Collectors.toList())
-            val myUsdAdapter = HistoryListAdapter(this, myUsdItems)
-            myHistoryListView.adapter = myUsdAdapter
-            val myOverall = df.format(myUsdItems.sumByDouble { it.myAmount.toDouble() })
-            val myTotal = df.format(myUsdItems.sumByDouble { it.addition.toDouble() })
-            totalCommissionTextView.text = "Iš viso komisiniu mokėsčiu : $myTotal USD"
-            quantityTextView.text = "Konvertavimu kiekis : " + myUsdItems.size
-            overallTextView.text = "Iš viso konvertuota : $myOverall USD"
+            val usdAdapter = HistoryListAdapter(this, usdItems)
+            historyListView.adapter = usdAdapter
+            val overall = df.format(usdItems.sumByDouble { it.amount.toDouble() })
+            val total = df.format(usdItems.sumByDouble { it.addition.toDouble() })
+            totalCommissionTextView.text = "Iš viso komisiniu mokėsčiu : $total USD"
+            quantityTextView.text = "Konvertavimu kiekis : " + usdItems.size
+            overallTextView.text = "Iš viso konvertuota : $overall USD"
         }
         jpyButton.setOnClickListener {
-            val myJpyItems = listHistoryItems.stream()
+            val jpyItems = listHistoryItems.stream()
                 .filter { n -> n.fromCurr == "JPY" }
                 .collect(Collectors.toList())
-            val myJpyAdapter = HistoryListAdapter(this, myJpyItems)
-            myHistoryListView.adapter = myJpyAdapter
-            val myOverall = df.format(myJpyItems.sumByDouble { it.myAmount.toDouble() })
-            val myTotal = df.format(myJpyItems.sumByDouble { it.addition.toDouble() })
-            totalCommissionTextView.text = "Iš viso komisiniu mokėsčiu : $myTotal JPY"
-            quantityTextView.text = "Konvertavimu kiekis : " + myJpyItems.size
-            overallTextView.text = "Iš viso konvertuota : $myOverall JPY"
+            val jpyAdapter = HistoryListAdapter(this, jpyItems)
+            historyListView.adapter = jpyAdapter
+            val overall = df.format(jpyItems.sumByDouble { it.amount.toDouble() })
+            val total = df.format(jpyItems.sumByDouble { it.addition.toDouble() })
+            totalCommissionTextView.text = "Iš viso komisiniu mokėsčiu : $total JPY"
+            quantityTextView.text = "Konvertavimu kiekis : " + jpyItems.size
+            overallTextView.text = "Iš viso konvertuota : $overall JPY"
         }
     }
 
     override fun onResume() {
-        val myHistoryListView = findViewById<ListView>(R.id.myHistoryListView)
+        val historyListView = findViewById<ListView>(R.id.myHistoryListView)
 
         listHistoryItems = HistoryItem().queryAll()
+
         val adapter = HistoryListAdapter(this, listHistoryItems)
-        myHistoryListView.adapter = adapter
-        val quantityTextView = findViewById<TextView>(R.id.quantityTextView)
-        val overallTextView = findViewById<TextView>(R.id.overallTextView)
-        val totalCommissionTextView = findViewById<TextView>(R.id.totalCommissionTextView)
+        historyListView.adapter = adapter
+
         quantityTextView.text = "Konvertavimu kiekis : " + listHistoryItems.size
         overallTextView.text = NOT_AVAILABLE
         totalCommissionTextView.text = NOT_AVAILABLE
+
         super.onResume()
     }
 

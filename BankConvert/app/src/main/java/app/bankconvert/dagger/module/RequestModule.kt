@@ -19,9 +19,9 @@ class RequestModule {
     }
 
     @Provides
-    fun retrofit(myUrl: String, rxJava2CallAdapterFactory: RxJava2CallAdapterFactory, gsonConverterFactory: GsonConverterFactory): Retrofit {
+    fun retrofit(url: String, rxJava2CallAdapterFactory: RxJava2CallAdapterFactory, gsonConverterFactory: GsonConverterFactory): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(myUrl)
+            .baseUrl(url)
             .addCallAdapterFactory(rxJava2CallAdapterFactory)
             .addConverterFactory(gsonConverterFactory)
             .build()

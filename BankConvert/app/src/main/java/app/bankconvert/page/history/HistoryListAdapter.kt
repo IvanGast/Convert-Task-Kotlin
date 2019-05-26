@@ -44,7 +44,7 @@ class HistoryListAdapter(private val context: Context,
 
         val item = getItem(position) as HistoryItem
 
-        val amount = CONVERT + df.format(item.myAmount.toDouble()) + " " + item.fromCurr + " į " + df.format(item.convertedAmount.toDouble()) + " " + item.toCurr
+        val amount = CONVERT + df.format(item.amount.toDouble()) + " " + item.fromCurr + " į " + df.format(item.convertedAmount.toDouble()) + " " + item.toCurr
         val commission = COMMISSION + dff.format(item.addition.toDouble()) + " " + item.fromCurr
         val time = TIME + item.time
 

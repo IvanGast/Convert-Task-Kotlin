@@ -4,11 +4,11 @@ import app.bankconvert.page.main.MainAccountView
 import app.bankconvert.realm.entities.Account
 import app.bankconvert.presenter.interactor.MainAccountInteractor
 
-class MainAccountPresenter(private var mainView: MainAccountView, private val myInteractorConvert: MainAccountInteractor)
+class MainAccountPresenter(private var mainView: MainAccountView, private val interactorConvert: MainAccountInteractor)
 : MainAccountInteractor.OnFinishedListener {
 
     fun getData() {
-        myInteractorConvert.requestServerData(this)
+        interactorConvert.requestServerData(this)
     }
 
     override fun onResultSuccess(dataUpdates: Account) {
@@ -17,6 +17,7 @@ class MainAccountPresenter(private var mainView: MainAccountView, private val my
         arrUpdates.add(dataUpdates.eurAmmount.toString())
         arrUpdates.add(dataUpdates.usdAmmount.toString())
         arrUpdates.add(dataUpdates.jpyAmmount.toString())
+
         mainView.setData(arrUpdates)
     }
 

@@ -18,19 +18,16 @@ import app.bankconvert.dagger.module.ContextModule
 import app.bankconvert.dagger.DaggerRequestInterfaceComponent
 import app.bankconvert.page.history.HistoryActivity
 import app.bankconvert.realm.entities.Account
-import app.bankconvert.realm.entities.HistoryItem
 import app.bankconvert.page.main.MainActivity
-import app.bankconvert.presenter.presenter.ConvertAccountPresenter
 import app.bankconvert.retrofit.model.DataEntity
 import app.page.bankconvert.R
-import com.vicpin.krealmextensions.createOrUpdate
 import com.vicpin.krealmextensions.queryFirst
-import com.vicpin.krealmextensions.save
+import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.content_convert.*
 import java.text.DecimalFormat
-import java.text.SimpleDateFormat
 import java.util.*
 
 class ConvertActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,
@@ -50,7 +47,7 @@ class ConvertActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
                                                                         .build()
     private lateinit var globalUrl: String
     private lateinit var account: Account
-    private lateinit var someConvert: MyConvert
+    private lateinit var someConvert: Convert
     private var addition:Double = 0.0
 
     @SuppressLint("SetTextI18n")
@@ -86,10 +83,9 @@ class ConvertActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         val amountEditTextView = findViewById<EditText>(R.id.amountEditText)
         val submitButton = findViewById<Button>(R.id.submitButton)
 
-
         submitButton.setOnClickListener {
             if (amountEditTextView.text.toString() != "") {
-                someConvert = MyConvert()
+                someConvert = Convert()
                 someConvert.setFromCurr(fromSpinner.selectedItem as String)
                 someConvert.setToCurr(toSpinner.selectedItem as String)
                 val df = DecimalFormat("#.##")
@@ -138,6 +134,10 @@ class ConvertActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
     }
 
+    fun getGlobalUrl():String {
+        return globalUrl
+    }
+
     private fun getAmount(curr: String): Double{
         if ( curr == EUR) {
             return account.eurAmmount
@@ -150,75 +150,36 @@ class ConvertActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         }
     }
 
-    private fun loadJSON(myUrl: String){
-        val mCompositeDisposable = CompositeDisposable()
-
-        globalUrl = myUrl
+    private fun loadJSON(url: String){
+        globalUrl = url
         val requestInterface = daggerRequestInterface.getRequestService()
 
-        mCompositeDisposable.add(requestInterface.getData(myUrl)
+        val mCompositeDisposable = CompositeDisposable()
+        mCompositeDisposable.add(requestInterface.getData(url)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .subscribe(this::handleResponse, this::handleError))
     }
 
 
-    private fun handleResponse(myData: DataEntity) {
-
-        if (someConvert.getFromCurr() == EUR) {
-            account.eurAmmount = account.eurAmmount - someConvert.getMyAmount().toDouble() - addition
-        } else {
-            if (someConvert.getFromCurr() == USD){
-                account.usdAmmount = account.usdAmmount - someConvert.getMyAmount().toDouble() - addition
-            } else {
-                account.jpyAmmount = account.jpyAmmount - someConvert.getMyAmount().toDouble() - addition
-            }
-        }
-
-        if ( myData.currency == EUR) {
-            account.eurAmmount = account.eurAmmount + myData.amount.toDouble()
-        } else {
-            if (myData.currency == USD) {
-                account.usdAmmount = account.usdAmmount + myData.amount.toDouble()
-            } else {
-                account.jpyAmmount = account.jpyAmmount + myData.amount.toDouble()
-            }
-        }
-
-        val sdf = SimpleDateFormat("dd/MM/yyyy hh:mm:ss")
-        val date = Calendar.getInstance().time
-
-        var myItem = HistoryItem()
-        myItem.id = account.convertCount
-        myItem.fromCurr = someConvert.getFromCurr()
-        myItem.toCurr = someConvert.getToCurr()
-        myItem.myAmount = someConvert.getMyAmount()
-        myItem.convertedAmount = myData.amount
-        myItem.addition = addition.toString()
-        myItem.time = sdf.format(date)
-
-        account.convertCount++
-
-        daggerRequestInterface.getConvertPresenter().onResultSuccess(account)
-
-        account.createOrUpdate()
-        myItem.save()
+    private fun handleResponse(data: DataEntity) {
+        daggerRequestInterface.getConvertPresenter().onResultUpdate(account, someConvert, data, addition)
 
         val df = DecimalFormat("#.##")
+
         if (addition > 0) {
             Toast.makeText(
                 applicationContext,
-                "Jūs konvertavote " + df.format(someConvert.getMyAmount().toDouble()) + " "  + someConvert.getFromCurr() + " į " + myData.amount + " " + someConvert.getToCurr() + ". Komisinis mokestis - " + df.format(addition) + " " + someConvert.getFromCurr() +" . (0.7% komisinis mokestis)",
+                "Jūs konvertavote " + df.format(someConvert.getMyAmount().toDouble()) + " "  + someConvert.getFromCurr() + " į " + data.amount + " " + someConvert.getToCurr() + ". Komisinis mokestis - " + df.format(addition) + " " + someConvert.getFromCurr() +" . (0.7% komisinis mokestis)",
                 Toast.LENGTH_LONG
             ).show()
         } else {
             Toast.makeText(
                 applicationContext,
-                "Jūs konvertavote " + df.format(someConvert.getMyAmount().toDouble()) + " "  + someConvert.getFromCurr() + " į " + myData.amount + " " + someConvert.getToCurr() + ". Komisinis mokestis - 0.00 EUR. (nemokamai)",
+                "Jūs konvertavote " + df.format(someConvert.getMyAmount().toDouble()) + " "  + someConvert.getFromCurr() + " į " + data.amount + " " + someConvert.getToCurr() + ". Komisinis mokestis - 0.00 EUR. (nemokamai)",
                 Toast.LENGTH_LONG
             ).show()
         }
-
     }
 
     private fun handleError(error: Throwable) {
@@ -271,37 +232,20 @@ class ConvertActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         return true
     }
 
-    fun getGlobalUrl():String {
-        return globalUrl
-    }
-
     override fun setDataError() {
-        val eurTextView = findViewById<TextView>(R.id.eurAmount)
-        val usdTextView = findViewById<TextView>(R.id.usdAmount)
-        val jpyTextView = findViewById<TextView>(R.id.jpyAmount)
-        val convertCountTextView = findViewById<TextView>(R.id.convertCountTextView)
-
         convertCountTextView.text = "Iš viso konvertavimu : Failed "
-        eurTextView.text =  NOT_AVAILABLE
-        usdTextView.text = NOT_AVAILABLE
-        jpyTextView.text = NOT_AVAILABLE
+        eurAmountTextView.text =  NOT_AVAILABLE
+        usdAmountTextView.text = NOT_AVAILABLE
+        jpyAmountTextView.text = NOT_AVAILABLE
     }
-
 
     override fun setData(strUpdates: ArrayList<String>) {
-        val eurTextView = findViewById<TextView>(R.id.eurAmount)
-        val usdTextView = findViewById<TextView>(R.id.usdAmount)
-        val jpyTextView = findViewById<TextView>(R.id.jpyAmount)
-        val convertCountTextView = findViewById<TextView>(R.id.convertCountTextView)
-
         val df = DecimalFormat("#.##")
-
         convertCountTextView.text = "Iš viso konvertavimu : " + strUpdates[0]
-        eurTextView.text = df.format(strUpdates[1].toDouble()) + " "
-        usdTextView.text = df.format(strUpdates[2].toDouble()) + " "
-        jpyTextView.text = df.format(strUpdates[3].toDouble()) + " "
+        eurAmountTextView.text = df.format(strUpdates[1].toDouble()) + " "
+        usdAmountTextView.text = df.format(strUpdates[2].toDouble()) + " "
+        jpyAmountTextView.text = df.format(strUpdates[3].toDouble()) + " "
     }
-
 }
 
 interface ConvertAccountView {

@@ -12,7 +12,6 @@ import android.support.design.widget.NavigationView
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
-import android.widget.TextView
 import app.bankconvert.page.convert.ConvertActivity
 import app.bankconvert.dagger.module.ContextModule
 import app.bankconvert.dagger.DaggerRequestInterfaceComponent
@@ -21,6 +20,7 @@ import app.bankconvert.realm.entities.Account
 import app.page.bankconvert.R
 import com.vicpin.krealmextensions.create
 import com.vicpin.krealmextensions.queryFirst
+import kotlinx.android.synthetic.main.content_main.*
 import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,
@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private val daggerRequestInterface = DaggerRequestInterfaceComponent.builder()
                                                                         .contextModule(ContextModule(this))
                                                                         .build()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -108,29 +107,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun setDataError() {
-        val eurTextView = findViewById<TextView>(R.id.eurAmount)
-        val usdTextView = findViewById<TextView>(R.id.usdAmount)
-        val jpyTextView = findViewById<TextView>(R.id.jpyAmount)
-        val convertCountTextView = findViewById<TextView>(R.id.convertCountTextView)
-
         convertCountTextView.text = "Iš viso konvertavimu : Failed "
-        eurTextView.text =  "Failed "
-        usdTextView.text = "Failed "
-        jpyTextView.text = "Failed "
+        eurAmountTextView.text =  "Failed "
+        usdAmountTextView.text = "Failed "
+        jpyAmountTextView.text = "Failed "
     }
 
 
     override fun setData(strUpdates: ArrayList<String>) {
-        val eurTextView = findViewById<TextView>(R.id.eurAmount)
-        val usdTextView = findViewById<TextView>(R.id.usdAmount)
-        val jpyTextView = findViewById<TextView>(R.id.jpyAmount)
-        val convertCountTextView = findViewById<TextView>(R.id.convertCountTextView)
-
         val df = DecimalFormat("#.##")
+
         convertCountTextView.text = "Iš viso konvertavimu : " + strUpdates[0]
-        eurTextView.text = df.format(strUpdates[1].toDouble()) + " "
-        usdTextView.text = df.format(strUpdates[2].toDouble()) + " "
-        jpyTextView.text = df.format(strUpdates[3].toDouble()) + " "
+        eurAmountTextView.text = df.format(strUpdates[1].toDouble()) + " "
+        usdAmountTextView.text = df.format(strUpdates[2].toDouble()) + " "
+        jpyAmountTextView.text = df.format(strUpdates[3].toDouble()) + " "
     }
 
     override fun onResume() {

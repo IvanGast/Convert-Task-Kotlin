@@ -86,7 +86,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:id="@+id/eurAmount"
+                            android:id="@+id/eurAmountTextView"
                             android:textAlignment="textEnd"/>
                     <TextView
                             style="@style/accountTextView"
@@ -108,7 +108,7 @@
                             android:layout_width="match_parent"
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
-                            android:id="@+id/usdAmount"
+                            android:id="@+id/usdAmountTextView"
                             android:textAlignment="textEnd"/>
                     <TextView
                             style="@style/accountTextView"
@@ -130,7 +130,7 @@
                             android:layout_width="match_parent"
                             android:layout_weight="1"
                             android:layout_height="wrap_content"
-                            android:id="@+id/jpyAmount"
+                            android:id="@+id/jpyAmountTextView"
                             android:textAlignment="textEnd"/>
                     <TextView
                             style="@style/accountTextView"
