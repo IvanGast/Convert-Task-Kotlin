@@ -8,7 +8,8 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/app_bar_main"
         tools:context="app.bankconvert.page.main.MainActivity"
-        android:weightSum="11" android:background="@drawable/background_gradient">
+        android:weightSum="11"
+        android:background="@drawable/background_gradient">
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -64,82 +65,13 @@
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"/>
             </LinearLayout>
-            <LinearLayout
-                    android:orientation="vertical"
+            <android.support.v7.widget.RecyclerView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginBottom="2dp"
-                    android:layout_marginRight="70dp"
+                    android:layout_height="150dp"
                     android:layout_marginLeft="70dp"
-                    android:background="@drawable/border_shadow">
-                <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:weightSum="2"
-                        android:background="@drawable/text_background_gradient"
-                        android:paddingTop="3dp"
-                        android:paddingBottom="1dp">
-                    <TextView
-                            style="@style/accountTextView"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:id="@+id/eurAmountTextView"
-                            android:textAlignment="textEnd"/>
-                    <TextView
-                            style="@style/accountTextView"
-                            android:text="@string/account_eur"
-                            android:layout_weight="1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-                </LinearLayout>
-                <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:weightSum="2"
-                        android:background="@drawable/text_background_gradient"
-                        android:paddingTop="2dp"
-                        android:paddingBottom="2dp">
-                    <TextView
-                            style="@style/accountTextView"
-                            android:layout_width="match_parent"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/usdAmountTextView"
-                            android:textAlignment="textEnd"/>
-                    <TextView
-                            style="@style/accountTextView"
-                            android:text="@string/account_usd"
-                            android:layout_weight="1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-                </LinearLayout>
-                <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:weightSum="2"
-                        android:background="@drawable/text_background_gradient"
-                        android:paddingBottom="3dp"
-                        android:paddingTop="1dp">
-                    <TextView
-                            style="@style/accountTextView"
-                            android:layout_width="match_parent"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/jpyAmountTextView"
-                            android:textAlignment="textEnd"/>
-                    <TextView
-                            style="@style/accountTextView"
-                            android:text="@string/account_jpy"
-                            android:layout_width="match_parent"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"/>
-                </LinearLayout>
-            </LinearLayout>
+                    android:layout_marginRight="70dp"
+                    android:paddingBottom="5dp"
+                    android:id="@+id/mainAccountRecyclerView"/>
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"

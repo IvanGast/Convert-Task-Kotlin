@@ -32,22 +32,16 @@ class HistoryListAdapter(private val context: Context,
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        // Get view for row item
         val rowView = inflater.inflate(R.layout.list_item, parent, false)
-
         val amountTextView = rowView.findViewById(R.id.amountTextView) as TextView
         val commissionTextView = rowView.findViewById(R.id.commissionTextView) as TextView
         val timeTextView = rowView.findViewById(R.id.timeTextView) as TextView
-
         val df = DecimalFormat("#.##")
         val dff = DecimalFormat("#.###")
-
         val item = getItem(position) as HistoryItem
-
         val amount = CONVERT + df.format(item.amount.toDouble()) + " " + item.fromCurr + " į " + df.format(item.convertedAmount.toDouble()) + " " + item.toCurr
         val commission = COMMISSION + dff.format(item.addition.toDouble()) + " " + item.fromCurr
         val time = TIME + item.time
-
         amountTextView.text = amount
         commissionTextView.text = commission
         timeTextView.text = time

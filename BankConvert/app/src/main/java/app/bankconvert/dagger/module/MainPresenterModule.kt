@@ -10,7 +10,6 @@ import dagger.Provides
 @Module(includes = [ContextModule::class])
 @Suppress("unused")
 class MainPresenterModule {
-
     @Provides
     fun presenter(contextMain: MainAccountView, mainInteractorConvert: MainAccountInteractor): MainAccountPresenter {
         return MainAccountPresenter(contextMain, mainInteractorConvert)
@@ -25,6 +24,4 @@ class MainPresenterModule {
     fun mainInteractorFactory(): MainAccountInteractor {
         return MainAccountInteractor()
     }
-
-
 }

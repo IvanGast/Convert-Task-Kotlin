@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/border_shadow">
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:background="@drawable/text_background_gradient"
+            android:paddingTop="3dp"
+            android:paddingBottom="1dp">
+        <TextView
+                style="@style/accountTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/amountTextView"
+                android:textAlignment="textEnd"/>
+        <TextView
+                style="@style/accountTextView"
+                android:id="@+id/currencyTextView"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:paddingLeft="4dp"/>
+    </LinearLayout>
+</LinearLayout>

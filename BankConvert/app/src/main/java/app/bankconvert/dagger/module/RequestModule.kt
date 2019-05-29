@@ -12,7 +12,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 @Module(includes = [ContextModule::class])
 @Suppress("unused")
 class RequestModule {
-
     @Provides
     fun requestInterface(retrofit: Retrofit): RequestInterface {
         return retrofit.create(RequestInterface::class.java)
@@ -29,7 +28,7 @@ class RequestModule {
 
     @Provides
     fun myUrlFactory(context: Context): String {
-        return (context as ConvertActivity).getGlobalUrl()
+        return (context as ConvertActivity).getUrl()
     }
 
     @Provides
@@ -41,5 +40,4 @@ class RequestModule {
     fun gsonConverterFactory(): GsonConverterFactory {
         return GsonConverterFactory.create()
     }
-
 }

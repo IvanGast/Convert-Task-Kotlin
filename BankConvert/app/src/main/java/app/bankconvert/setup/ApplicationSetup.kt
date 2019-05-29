@@ -8,9 +8,9 @@ class ApplicationSetup: Application() {
     override fun onCreate() {
         super.onCreate()
         Realm.init(applicationContext)
-        var c = RealmConfiguration.Builder()
-        c.name("realmAccount")
-        c.deleteRealmIfMigrationNeeded()
-        Realm.setDefaultConfiguration(c.build())
+        var config = RealmConfiguration.Builder()
+        config.name("realmAccount")
+        config.deleteRealmIfMigrationNeeded()
+        Realm.setDefaultConfiguration(config.build())
     }
 }

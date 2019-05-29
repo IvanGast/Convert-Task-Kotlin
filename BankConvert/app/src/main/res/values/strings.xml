@@ -24,7 +24,16 @@
     <string name="convert_to">Į : </string>
     <string name="convert_amount">Kiekis : </string>
     <string name="convert_submit">Pateikti konvertavimą</string>
-
+    <string name="not_available"> Failed </string>
+    <string name="not_available_history">Čia nenurodoma</string>
+    <string name="overall_convert">"Iš viso konvertavimu : "</string>
+    <string name="fab_message">Rašyk e-mail ivan.gastilovic@hotmail.com</string>
+    <string name="value_error">Nurodykit konvertavimo sumą</string>
+    <string name="commission_error">Nepakanka pinigų užmokėti komisinį mokėstį</string>
+    <string name="balance_error">Nepakanka pinigų</string>
+    <string name="currency_error">Valiutos turi skirtis</string>
+    <string name="converted">"Jūs konvertavote "</string>
+    <string name="jpy">JPY</string>
 
     <string-array name="currency_array">
         <item>EUR</item>

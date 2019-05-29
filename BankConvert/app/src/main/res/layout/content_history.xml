@@ -71,7 +71,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            app:layout_constraintBottom_toTopOf="@+id/myHistoryListView"
+            app:layout_constraintBottom_toTopOf="@+id/historyListView"
             android:id="@+id/linearLayout2"
             android:padding="2dp">
         <TextView
